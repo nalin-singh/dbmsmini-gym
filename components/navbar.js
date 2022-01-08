@@ -1,20 +1,31 @@
+import { useRouter } from "next/router";
+import React, { useEffect, useState} from "react";
+
 const navigation = [
-    { name: 'Dashboard', href: '#'},
+    { name: 'Admin Dashboard', href: './dashboardLogin'},
     { name: 'Staff', href: '#'},
     { name: 'MarketPlace', href: '#'},
-    { name: 'Pricing', href: '#'},
+    { name: 'Pricing', href: './pricing'},
   ]
-  
+
 export default function Navbar(){
+    const router = useRouter();
+    console.log(router.asPath);
     return(
-        <nav className=' pt-6 px-4 flex flex-items justify-between'>
-        <div className='flex items-center'>
-          <a href="./">
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"/>
+        <nav className='pt-8 w-full'>
+        <div className='flex justify between  flex-grow place-content-between items-center'>
+          <a className="flex flex-row items-center" href="./">
+            <h1 className="font-semibold text-xl dark:text-gray-100">
+              FitMate
+            </h1>
           </a>
-          <div className=''>
+          <div className='space-x-8 font-medium'>
             {navigation.map((navItem)=>(
-              <a key={navItem.name} href={navItem.href} className='font-medium text-indigo-600 hover:text-indigo-500'>
+              <a key={navItem.name} href={navItem.href}
+                className={`text-base  ${
+                  router.asPath === './'.concat('',navItem.name)? "text-gray-dark font-bold dark:text-gray" : "text-gray-dark dark:text-gray-300 font-normal "
+                }`}
+              >
                 {navItem.name}
               </a>
             ))}
