@@ -1,8 +1,10 @@
 //Good video to refer https://www.youtube.com/watch?v=Cvkg7wqXt2M&ab_channel=Tailwindcollections
+import EntryForm from "../components/edit-customer-entry";
 
 export default function Dashboard(){
     return (
         <>
+        <EntryForm/>
            <div className="w-64 h-screen bg-black rounded-r-md">
                <div className="px-6 pt-8">
                    <div className="flex items-center justify-between">

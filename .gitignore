@@ -18,6 +18,7 @@
 # misc
 .DS_Store
 *.pem
+public/sampleData.xlsx
 
 # debug
 npm-debug.log*
